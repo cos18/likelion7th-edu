@@ -1,0 +1,23 @@
+<h1>동방 방명록</h1>
+<form action="{% url 'submit' %}">
+    메세지 : <textarea cols="30" rows="1" name="words"></textarea>
+    <br>
+    작성자 : <textarea cols="30" rows="1" name="writter"></textarea>
+    <br>
+    등록일: <input type="date" name="date">
+    <input type="submit" value="등록하기">
+</form>
+
+<table border="1">
+    <th>메세지</th>
+    <th>작성자</th>
+    <th>날짜</th>
+    {% for m in messages.all %}
+    <tr>
+        <td>{{ m.words }}</td>
+        <td>{{ m.writter }}</td>
+        <td>{{ m.date }}</td>
+    </tr>
+    {% endfor %}
+    
+</table>
